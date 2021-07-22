@@ -1,5 +1,5 @@
 function isAdmin(req, res, next) {
-  if (req.user.data[0].role === 'admin') {
+  if (req.user.data.role === 'admin') {
     next()
   } else {
     return res.status(403).json({
@@ -8,7 +8,7 @@ function isAdmin(req, res, next) {
   }
 }
 function isUser(req, res, next) {
-  if (req.user.data[0].role === 'user') {
+  if (req.user.data.role === 'user') {
     next()
   } else {
     return res.status(403).json({

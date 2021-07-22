@@ -27,10 +27,16 @@ exports.login = async (req, res) => {
     if (rows) {
       const match = await bcrypt.compare(req.body.password, rows[0].password)
       if (match) {
-        const token = jwt.sign({ data: rows }, process.env.SECRET_KEY, {
+        const data = {
+          id: rows[0].id,
+          username: rows[0].username,
+          role: rows[0].role,
+          nama: rows[0].nama,
+        }
+        const token = jwt.sign({ data: data }, process.env.SECRET_KEY, {
           expiresIn: '1d',
         })
-        response.data = rows
+        response.data = data
         response.message = 'Sukses'
         response.token = token
       } else {
