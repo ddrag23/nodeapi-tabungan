@@ -1,6 +1,5 @@
 const express = require('express')
-const authenticate = require('../middleware/authenticate')
-const { isAdmin, isUser } = require('../middleware/is-role')
+const { authenticate, isUser, isAdmin } = require('../middleware')
 const authRouter = require('./auth')
 const app = express.Router()
 app.use('/auth', authRouter)
