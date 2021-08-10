@@ -11,6 +11,7 @@ exports.index = async (_, res) => {
 
 exports.validate = () => {
   return [
+    body('name', 'name tidak boleh kosong').notEmpty(),
     body('username', 'username tidak boleh kosong').notEmpty(),
     body('email', 'email tidak boleh kosong').notEmpty(),
     body('alamat', 'alamat tidak boleh kosong').notEmpty(),

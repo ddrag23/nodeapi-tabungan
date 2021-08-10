@@ -10,6 +10,7 @@ exports.validate = () => {
     body('password', 'password tidak boleh Kosong').notEmpty(),
   ]
 }
+
 exports.login = async (req, res) => {
   try {
     const response = {
